@@ -1,0 +1,110 @@
+{
+  "students": [
+    {
+      "id": "1",
+      "name": "Saravanan Ganesh",
+      "fbId": ""
+    },
+    {
+      "id": "2",
+      "name": "Priyanka Kapoor",
+      "fbId": ""
+    },
+    {
+      "id": "3",
+      "name": "Vivek Ganesh",
+      "fbId": ""
+    },
+    {
+      "id": "4",
+      "name": "Lakshmi Ramasamy Seetha",
+      "fbId": ""
+    },
+    {
+      "id": "5",
+      "name": "Ganesh Krishna Murthy",
+      "fbId": ""
+    },
+    {
+      "id": "6",
+      "name": "Mangalam Guruswamy",
+      "fbId": ""
+    }
+  ],
+  "batches": [
+    {
+      "id": "1",
+      "name": "Batch A",
+      "students": [
+        "1",
+        "2"
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Batch B",
+      "students": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ]
+    }
+  ],
+  "tests": [
+    {
+      "id": "1",
+      "date": "1452313016746",
+      "batchId": "1"
+    },
+    {
+      "id": "2",
+      "date": "1452399473203",
+      "batchId": "2"
+    }
+  ],
+  "marks": [
+    {
+      "id": "1",
+      "testId": "1",
+      "studentId": "1",
+      "maxValue": "25",
+      "value": "20"
+    },
+    {
+      "id": "2",
+      "testId": "1",
+      "studentId": "2",
+      "maxValue": "25",
+      "value": "25"
+    },
+    {
+      "id": "3",
+      "testId": "2",
+      "studentId": "3",
+      "maxValue": "25",
+      "value": "21"
+    },
+    {
+      "id": "4",
+      "testId": "2",
+      "studentId": "4",
+      "maxValue": "25",
+      "value": "25"
+    },
+    {
+      "id": "5",
+      "testId": "2",
+      "studentId": "5",
+      "maxValue": "25",
+      "value": "22"
+    },
+    {
+      "id": "6",
+      "testId": "2",
+      "studentId": "6",
+      "maxValue": "25",
+      "value": "25"
+    }
+  ]
+}
