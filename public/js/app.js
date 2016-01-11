@@ -1,6 +1,7 @@
 // This file bootstraps the entire application.
 
 var HelloWorldApp = require('./components/HelloWorldApp.react');
+var App = require('./components/App.react');
 // var ChatApp = require('./components/ChatApp.react');
 // var ChatExampleData = require('./ChatExampleData');
 // var ChatWebAPIUtils = require('./utils/ChatWebAPIUtils');
@@ -12,6 +13,6 @@ window.React = React; // export for http://fb.me/react-devtools
 // ChatWebAPIUtils.getAllMessages();
 
 React.render(
-    <HelloWorldApp />,
+    <App />,
     document.getElementById('react')
 );
