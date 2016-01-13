@@ -7,7 +7,7 @@ var App = React.createClass({
 
 	render: function() {
 		return (
-			<div className="rst-app">
+			<div className="container">
 				<Header />
 				<LinksList />
 				<Footer />

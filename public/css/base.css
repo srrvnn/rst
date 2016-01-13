@@ -2,3 +2,87 @@
 	font-family: 'Hind Vadodara', sans-serif;
 }
 
+/* APP WIDE STYLES */
+
+html, body, #react {
+
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+.container {
+
+	position: relative;
+	min-height: 100%;
+	width: 1140px;
+	padding: 0 50px;
+	text-align: center;
+	margin: auto;
+}
+
+/* HEADER STYLES */
+
+.header {
+
+}
+
+.header h1 {
+
+}
+
+.header img {
+
+	border-radius: 50px;
+	border: 8px solid #ff3333;
+}
+
+/* LINKS LIST STYLES */
+
+.links-list {
+
+	list-style: none;
+}
+
+.links-list li {
+
+	display: inline-block;
+}
+
+.links-list li img {
+
+}
+
+.links-list li a {
+
+}
+
+/* FOOTER LIST STYLES */
+
+footer {
+
+	position: absolute;
+	bottom: 0;width: 1040px;
+	height: 60px;}
+
+
+.footer-list {
+
+	font-size: 14px;	
+	list-style: none;
+	height: 60px;line-height: 60px;margin: 0;padding: 0;}
+
+.footer-list li {
+
+	display: inline-block;margin: 0 10px;padding: 0 10px;}
+
+.footer-list li a {
+
+}
+
+.footer-list li span {
+
+}
+
+
+

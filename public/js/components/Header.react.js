@@ -6,7 +6,7 @@ var Header = React.createClass({
 
 	render: function() {
 		return (
-			<div className="rst-header">
+			<div className="header">
 				<Title />
 				<User />
 			</div>
