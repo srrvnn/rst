@@ -1,6 +1,6 @@
 {
   "name": "rst",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Web Application to manage logistics at R.S.Tuition Centre.",
   "repository": "https://github.com/srrvnn/rst",
   "main": "js/app.js",
