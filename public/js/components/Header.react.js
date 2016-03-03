@@ -8,7 +8,6 @@ var Header = React.createClass({
 		return (
 			<div className="header">
 				<Title />
-				<User />
 			</div>
 		);
 	}

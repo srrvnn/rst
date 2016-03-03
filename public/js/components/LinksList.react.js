@@ -9,8 +9,8 @@ var LinksList = React.createClass({
 		var linkItems = this.links.map(function(item) {
 			return (
 				<li>
-					<img src="http://placehold.it/50x50" />
-					<a href={item.toLowerCase()}>{item}</a>
+					<img src="http://placehold.it/100x100" />
+					<span href={item.toLowerCase()}>{item}</span>
 				</li>
 			);
 		});

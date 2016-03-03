@@ -1,88 +1,121 @@
 * {
-	font-family: 'Hind Vadodara', sans-serif;
+    font-family: "Hind Vadodara", sans-serif;
 }
 
 /* APP WIDE STYLES */
 
-html, body, #react {
-
-	margin: 0;
-	padding: 0;
-	height: 100%;
+html,
+body,
+#react {
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 .container {
+    position: relative;
 
-	position: relative;
-	min-height: 100%;
-	width: 1140px;
-	padding: 0 50px;
-	text-align: center;
-	margin: auto;
+    min-height: 100%;
+    margin: auto;
+    padding: 0 50px;
+
+    text-align: center;
 }
 
 /* HEADER STYLES */
 
 .header {
+    position: relative;
 
+    margin: 50px 0;
+    padding: 1px;
 }
 
 .header h1 {
+    margin-bottom: 20px;
 
+    line-height: 50px;
 }
 
-.header img {
+.header .user {
+    font-style: italic;
+}
 
-	border-radius: 50px;
-	border: 8px solid #ff3333;
+.header img {position: absolute;
+    top: 0;
+    right: 50px;
+
+    margin: 20px 0 10px 0;
+
+    border-radius: 50px;
 }
 
 /* LINKS LIST STYLES */
 
 .links-list {
+    margin: 100px 0;
+    padding: 0;
 
-	list-style: none;
+    list-style: none;
 }
 
 .links-list li {
+    display: inline-block;
 
-	display: inline-block;
+    width: 150px;
+    margin: 0 25px;
+
+    cursor: pointer;
+    text-align: center;
+
+    border-radius: 10px;
+}
+
+.links-list li:hover {
+    background: #ffd1d1;
 }
 
 .links-list li img {
+    display: block;
 
+    margin: 20px auto 10px;
+
+    border-radius: 5px;
 }
 
-.links-list li a {
+.links-list li span {
+    display: inline-block;
 
+    padding: 10px 20px;
+
+    font-size: 1.25em;
 }
 
 /* FOOTER LIST STYLES */
 
 footer {
+    position: absolute;
+    bottom: 0;
 
-	position: absolute;
-	bottom: 0;width: 1040px;
-	height: 60px;}
+    width: 1040px;
+    height: 60px;
+}
 
 
 .footer-list {
+    height: 60px;
+    margin: 0;
+    padding: 0;
 
-	font-size: 14px;	
-	list-style: none;
-	height: 60px;line-height: 60px;margin: 0;padding: 0;}
+    list-style: none;
+
+    font-size: 14px;
+    line-height: 60px;
+}
 
 .footer-list li {
+    display: inline-block;
 
-	display: inline-block;margin: 0 10px;padding: 0 10px;}
-
-.footer-list li a {
-
+    margin: 0 10px;
+    padding: 0 10px;
 }
-
-.footer-list li span {
-
-}
-
-
-

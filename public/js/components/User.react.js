@@ -3,8 +3,12 @@ var React = require('react');
 var Title = React.createClass({
 
 	render: function() {
+
+		var username = 'Logged in as Saravanan Ganesh';
+
 		return (
-			<img src="http://placehold.it/50x50" />
+			<div className="user">{username}</div>
+			// <img src="http://placehold.it/50x50" />
 		);
 	}
 });
