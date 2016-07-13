@@ -1,12 +1,31 @@
 var React = require('react');
+var request = require('request');
 
 var LinksList = React.createClass({
 
+	empty: [],
 	links: ['Batches', 'Students', 'Tests', 'Messages'],
 
-	render: function() {
+	getInitialState: function() {
+		return {messages: []};
+	},
 
-		var linkItems = this.links.map(function(item) {
+	componentDidMount: function() {
+		request('http://localhost:3000/api/messages', function(error, response, body) {
+			var result = JSON.parse(body);
+			this.setState({messages: result});
+		}.bind(this));
+	},
+
+	handleClick: function() {
+		request.post('http://localhost:3000/api/messages',
+			{json: {toPhoneNumber: '8220002254', toMessage: 'Hello, Chella.'}}, function(error, response, body) {
+				console.log(body);
+		}.bind(this));
+	},
+
+	render: function() {
+		var linkItems = this.empty.map(function(item) {
 			return (
 				<li>
 					<img src="http://placehold.it/100x100" />
@@ -14,12 +33,13 @@ var LinksList = React.createClass({
 				</li>
 			);
 		});
-
 		return (
 			<div className="content">
 				<ul className="links-list">
 					{linkItems}
 				</ul>
+				<button onClick={this.handleClick}> Add a message via the API </button>
+				<span> {status} </span>
 			</div>
 		);
 	}
