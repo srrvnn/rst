@@ -26,6 +26,7 @@
   "scripts": {
     "start": "watchify -o public/js/bundle.js -v -d public/js/app.js & node server.js",
     "build": "browserify . -t [envify --NODE_ENV production] | uglifyjs -cm > public/js/bundle.min.js",
+    "run": "node server.js",
     "test": "jest",
     "lint": "csscomb public/css"
   },
