@@ -7,20 +7,53 @@ var LinksList = React.createClass({
 	links: ['Batches', 'Students', 'Tests', 'Messages'],
 
 	getInitialState: function() {
-		return {messages: []};
+		return {messages: [], random: Math.floor(Math.random() * (50 - 1 + 1)) + 1};
 	},
 
 	componentDidMount: function() {
 		request('http://localhost:3000/api/messages', function(error, response, body) {
-			var result = JSON.parse(body);
-			this.setState({messages: result});
+			this.setState({messages: JSON.parse(body)});
 		}.bind(this));
 	},
 
-	handleClick: function() {
+	handleClearMessageClick: function() {
+		request.delete('http://localhost:3000/api/messages', function(error, response, body) {
+				this.setState({messages: JSON.parse(body)});
+		}.bind(this));
+	},
+
+	handleAddMessageClick: function() {
+
+		var randomPhoneNumber = (Math.floor(Math.random() * (9999999999 - 7891000000)) + 7891000000).toString();
+		var randomMessage = 'Hello from RST';
+
 		request.post('http://localhost:3000/api/messages',
-			{json: {toPhoneNumber: '8220002254', toMessage: 'Hello, Chella.'}}, function(error, response, body) {
-				console.log(body);
+			{json: {toPhoneNumber: randomPhoneNumber, toMessage: randomMessage}}, function(error, response, body) {
+				this.setState({messages: body});
+		}.bind(this));
+	},
+
+	handleBatchMessageClick: function() {
+
+		var randomPhoneNumber = (Math.floor(Math.random() * (9999999999 - 7891000000)) + 7891000000).toString();
+		var randomMessage = 'Hello from RST';
+
+		request.post('http://localhost:3000/api/tests/1/release',
+			{json: {toPhoneNumber: randomPhoneNumber, toMessage: randomMessage, number: this.state.random}}, function(error, response, body) {
+				this.setState({messages: body});
+		}.bind(this));
+	},
+
+	handleSendClick: function() {
+
+		var nextMessage = this.state.messages.find(function(item) {
+			if (!item.sent) return true;
+		});
+
+		console.log(nextMessage);
+
+		request.put('http://localhost:3000/api/messages/' + nextMessage.id, function(error, response, body) {
+				this.setState({messages: JSON.parse(body)});
 		}.bind(this));
 	},
 
@@ -33,13 +66,25 @@ var LinksList = React.createClass({
 				</li>
 			);
 		});
+		var messageItems = this.state.messages.map(function(item) {
+			return (
+				<li>
+					<span>TO: {item.toPhoneNumber} &mdash; MESSAGE: {item.toMessage} {item.sent ? 'SENT' : null}</span>
+				</li>
+			);
+		});
 		return (
 			<div className="content">
 				<ul className="links-list">
 					{linkItems}
 				</ul>
-				<button onClick={this.handleClick}> Add a message via the API </button>
-				<span> {status} </span>
+				<button className="btn-add" onClick={this.handleAddMessageClick}> Add ONE message </button>
+				<button className="btn-add" onClick={this.handleBatchMessageClick}> Add {this.state.random} messages </button>
+				<button className="btn-add" onClick={this.handleClearMessageClick}> Clear All </button>
+				<button className="btn-add" onClick={this.handleSendClick}> Simulate Send </button>
+				<ul className="messages-list">
+					{messageItems}
+				</ul>
 			</div>
 		);
 	}

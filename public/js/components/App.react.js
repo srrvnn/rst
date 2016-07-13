@@ -10,7 +10,6 @@ var App = React.createClass({
 			<div className="container">
 				<Header />
 				<LinksList />
-				<Footer />
 			</div>
 		);
 	}
