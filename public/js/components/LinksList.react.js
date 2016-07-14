@@ -50,8 +50,6 @@ var LinksList = React.createClass({
 			if (!item.sent) return true;
 		});
 
-		console.log(nextMessage);
-
 		request.put('http://localhost:3000/api/messages/' + nextMessage.id, function(error, response, body) {
 				this.setState({messages: JSON.parse(body)});
 		}.bind(this));
@@ -69,7 +67,7 @@ var LinksList = React.createClass({
 		var messageItems = this.state.messages.map(function(item) {
 			return (
 				<li>
-					<span>TO: {item.toPhoneNumber} &mdash; MESSAGE: {item.toMessage} {item.sent ? 'SENT' : null}</span>
+					<span>ID: {item.id} TO: {item.toPhoneNumber} &mdash; MESSAGE: {item.toMessage} {item.sent ? 'SENT' : null}</span>
 				</li>
 			);
 		});
