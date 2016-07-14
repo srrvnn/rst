@@ -5,19 +5,20 @@ var LinksList = React.createClass({
 
 	empty: [],
 	links: ['Batches', 'Students', 'Tests', 'Messages'],
+	base: location.protocol + '//' + location.host,
 
 	getInitialState: function() {
 		return {messages: [], random: Math.floor(Math.random() * (50 - 1 + 1)) + 1};
 	},
 
 	componentDidMount: function() {
-		request('http://localhost:3000/api/messages', function(error, response, body) {
+		request(this.base + '/api/messages', function(error, response, body) {
 			this.setState({messages: JSON.parse(body)});
 		}.bind(this));
 	},
 
 	handleClearMessageClick: function() {
-		request.delete('http://localhost:3000/api/messages', function(error, response, body) {
+		request.delete(this.base + '/api/messages', function(error, response, body) {
 				this.setState({messages: JSON.parse(body)});
 		}.bind(this));
 	},
@@ -27,7 +28,7 @@ var LinksList = React.createClass({
 		var randomPhoneNumber = (Math.floor(Math.random() * (9999999999 - 7891000000)) + 7891000000).toString();
 		var randomMessage = 'Hello from RST';
 
-		request.post('http://localhost:3000/api/messages',
+		request.post(this.base + '/api/messages',
 			{json: {toPhoneNumber: randomPhoneNumber, toMessage: randomMessage}}, function(error, response, body) {
 				this.setState({messages: body});
 		}.bind(this));
@@ -38,7 +39,7 @@ var LinksList = React.createClass({
 		var randomPhoneNumber = (Math.floor(Math.random() * (9999999999 - 7891000000)) + 7891000000).toString();
 		var randomMessage = 'Hello from RST';
 
-		request.post('http://localhost:3000/api/tests/1/release',
+		request.post(this.base + '/api/tests/1/release',
 			{json: {toPhoneNumber: randomPhoneNumber, toMessage: randomMessage, number: this.state.random}}, function(error, response, body) {
 				this.setState({messages: body});
 		}.bind(this));
@@ -50,7 +51,7 @@ var LinksList = React.createClass({
 			if (!item.sent) return true;
 		});
 
-		request.put('http://localhost:3000/api/messages/' + nextMessage.id, function(error, response, body) {
+		request.put(this.base + '/api/messages/' + nextMessage.id, function(error, response, body) {
 				this.setState({messages: JSON.parse(body)});
 		}.bind(this));
 	},
