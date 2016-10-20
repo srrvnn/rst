@@ -2,8 +2,9 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var TestSchema = new Schema({
-  d: { type: Date, default: Date.now },
-  name: String
+  _id: Schema.Types.ObjectId,
+  batch_id: Number,
+  date: Date
 });
 
 module.exports = mongoose.model('Test', TestSchema);

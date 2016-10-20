@@ -3,6 +3,10 @@ var router = express.Router();
 
 var mongoose = require('mongoose');
 var Batch = require('../models/Batch.js');
+var Student = require('../models/Student.js');
+var Lecture = require('../models/Lecture.js');
+var Test = require('../models/Test.js');
+var Message = require('../models/Message.js');
 
 router.get('/', function(req, res, next) {
   Batch.find(function (err, batches) {
@@ -11,31 +15,49 @@ router.get('/', function(req, res, next) {
   });
 });
 
-router.post('/', function(req, res, next) {
-  Batch.create(req.body, function (err, post) {
+router.get('/:id', function(req, res, next) {
+  Batch.findById(req.params.id, function (err, batch) {
     if (err) return next(err);
-    res.json(post);
+
+    // TODO: rewrite with promises
+    Student.find({current_batch_id:req.params.id}, function (err, students) {
+      if (err) res.json(batch);
+      batch.students = students;
+      Lecture.find({batch_id:req.params.id}, function(err, lectures) {
+        if (err) res.json(batch);
+        batch.lectures = lectures;
+        Test.find({batch_id:req.params.id}, function(err, tests) {
+          if (err) res.json(batch);
+          batch.tests = tests;
+          Message.find({batch_id:req.params.id}, function(err, messages) {
+            if (err) res.json(batch);
+            batch.messages = messages;
+            res.json(batch);
+          });
+        });
+      });
+    });
   });
 });
 
-router.get('/:id', function(req, res, next) {
-  Batch.findById(req.params.id, function (err, post) {
+router.post('/', function(req, res, next) {
+  Batch.create(req.body, function (err, batch) {
     if (err) return next(err);
-    res.json(post);
+    res.status(201).json(batch);
   });
 });
 
 router.put('/:id', function(req, res, next) {
-  Batch.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
+  Batch.findByIdAndUpdate(req.params.id, req.body, function (err, batch) {
     if (err) return next(err);
-    res.json(post);
+    res.json(batch);
   });
 });
 
 router.delete('/:id', function(req, res, next) {
-  Batch.findByIdAndRemove(req.params.id, req.body, function (err, post) {
+  Batch.findByIdAndRemove(req.params.id, req.body, function (err, batch) {
     if (err) return next(err);
-    res.json(post);
+    res.status(204).end();
   });
 });
 

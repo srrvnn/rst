@@ -21,6 +21,9 @@ app.use('/api/batches', batches);
 var tests = require('./routes/tests.js');
 app.use('/api/tests', tests);
 
+var messages = require('./routes/messages.js');
+app.use('/api/messages', messages);
+
 app.set('port', (process.env.PORT || 3000));
 
 app.use('/', express.static(path.join(__dirname, 'public')));
