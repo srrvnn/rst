@@ -19,17 +19,27 @@
     "request": "^2.73.0"
   },
   "devDependencies": {
-    "browserify": "^6.2.0",
+    "babel-core": "^6.17.0",
+    "babel-loader": "^6.2.5",
+    "babel-plugin-react-transform": "^2.0.2",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
+    "babelify": "^7.3.0",
+    "browserify": "^6.3.4",
     "envify": "^3.0.0",
     "jest-cli": "^0.4.3",
+    "livereactload": "^3.1.0",
+    "react-proxy": "^1.1.8",
     "reactify": "^0.15.2",
+    "serve": "^1.4.0",
     "uglify-js": "~2.4.15",
-    "watchify": "^3.7.0"
+    "watchify": "^3.7.0",
+    "webpack": "^1.13.2"
   },
   "scripts": {
-    "start": "watchify -o public/js/bundle.js -d public/js/app.js & node server.js",
+    "start": "watchify public/js/app.js -o public/js/bundle.js -dv -p livereactload & serve public",
     "watch": "watchify -o public/js/bundle.js -d public/js/app.js",
-    "build": "browserify public/js/app.js -t [envify --NODE_ENV production] | uglifyjs -m > public/js/bundle.js",
+    "build": "browserify public/js/app.js | uglifyjs -m > public/js/bundle.js",
     "run": "node server.js",
     "test": "jest",
     "lint": "csscomb public/css"
@@ -37,8 +47,15 @@
   "author": "Saravanan Ganesh",
   "browserify": {
     "transform": [
-      "reactify",
-      "envify"
+      [
+        "babelify",
+        {
+          "presets": [
+            "es2015",
+            "react"
+          ]
+        }
+      ]
     ]
   },
   "jest": {

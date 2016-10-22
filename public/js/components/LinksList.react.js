@@ -74,7 +74,7 @@ var LinksList = React.createClass({
 		});
 		return (
 			<div className="content">
-				{linkItems}
+				{linkItems} Hello World
 			</div>
 		);
 	}
