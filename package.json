@@ -37,7 +37,7 @@
     "webpack": "^1.13.2"
   },
   "scripts": {
-    "start": "watchify public/js/app.js -o public/js/bundle.js -dv -p livereactload & serve public",
+    "start": "watchify public/js/app.js -o public/js/bundle.js -dv -p livereactload & node server.js",
     "watch": "watchify -o public/js/bundle.js -d public/js/app.js",
     "build": "browserify public/js/app.js | uglifyjs -m > public/js/bundle.js",
     "run": "node server.js",
