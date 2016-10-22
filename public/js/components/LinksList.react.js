@@ -57,7 +57,7 @@ var LinksList = React.createClass({
 	},
 
 	render: function() {
-		var linkItems = this.empty.map(function(item) {
+		var linkItems = this.links.map(function(item) {
 			return (
 				<li>
 					<img src="http://placehold.it/100x100" />
@@ -74,51 +74,7 @@ var LinksList = React.createClass({
 		});
 		return (
 			<div className="content">
-				<h4> Summary API </h4>
-				<button className="btn-add" onClick={this.handle}> Read Summary </button>
-
-				<h4> Batches API </h4>
-				<button className="btn-add" onClick={this.handle}> Read Batches </button>
-				<button className="btn-add" onClick={this.handle}> Create Batch </button>
-				<button className="btn-add" onClick={this.handle}> Update Batch </button>
-				<button className="btn-add" onClick={this.handle}> Delete Batch </button>
-
-				<h4> Students API </h4>
-				<button className="btn-add" onClick={this.handle}> Read Students </button>
-				<button className="btn-add" onClick={this.handle}> Create Student </button>
-				<button className="btn-add" onClick={this.handle}> Update Student </button>
-				<button className="btn-add" onClick={this.handle}> Delete Student </button>
-
-				<h4> Questions API </h4>
-				<button className="btn-add" onClick={this.handle}> Read Questions </button>
-				<button className="btn-add" onClick={this.handle}> Create Question </button>
-				<button className="btn-add" onClick={this.handle}> Update Question </button>
-				<button className="btn-add" onClick={this.handle}> Delete Question </button>
-
-				<h4> Messages API </h4>
-				<button className="btn-add" onClick={this.handle}> Read Messages </button>
-				<button className="btn-add" onClick={this.handle}> Create Message </button>
-				<button className="btn-add" onClick={this.handle}> Update Message </button>
-				<button className="btn-add" onClick={this.handle}> Delete Message </button>
-
-				<h4> Lectures API </h4>
-				<button className="btn-add" onClick={this.handle}> Read Lectures </button>
-				<button className="btn-add" onClick={this.handle}> Create Lecture </button>
-				<button className="btn-add" onClick={this.handle}> Update Lecture </button>
-				<button className="btn-add" onClick={this.handle}> Delete Lecture </button>
-
-				<h4> Tests API </h4>
-				<button className="btn-add" onClick={this.handle}> Read Tests </button>
-				<button className="btn-add" onClick={this.handle}> Create Test </button>
-				<button className="btn-add" onClick={this.handle}> Update Test </button>
-				<button className="btn-add" onClick={this.handle}> Delete Test </button>
-
-				<h4> Marks API </h4>
-				<button className="btn-add" onClick={this.handle}> Read Marks </button>
-				<button className="btn-add" onClick={this.handle}> Create Mark </button>
-				<button className="btn-add" onClick={this.handle}> Update Mark </button>
-				<button className="btn-add" onClick={this.handle}> Delete Mark </button>
-
+				{linkItems}
 			</div>
 		);
 	}

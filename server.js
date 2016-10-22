@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 var app = express();
 
 var mongoose = require('mongoose');
-var mongodb_url = process.env.MONGODB_URI;
+var mongodb_url = process.env.MONGODB_URI || 'mongodb://localhost/rst-db';
 
 mongoose.connect(mongodb_url, function(err) {
     if(err) {
