@@ -2,9 +2,10 @@
 
 var App = require('./components/App.react');
 var React = require('react');
+var ReactDOM = require('react-dom');
 window.React = React; // export for http://fb.me/react-devtools
 
-React.render(
+ReactDOM.render(
     <App />,
     document.getElementById('react')
 );
