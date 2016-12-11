@@ -3,6 +3,21 @@ var path = require('path');
 var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
+var webpack = require('webpack');
+var webpackConfig = require('./webpack.config');
+var webpackCompiler = webpack(webpackConfig);
+
+app.use(require('webpack-dev-middleware')(webpackCompiler, {
+  publicPath: webpackConfig.output.publicPath,
+  hot: true,
+  historyApiFallback: true,
+  contentBase: 'public/',
+  proxy: {
+    '*': 'http://localhost:3000'
+  }
+}));
+
+app.use(require('webpack-hot-middleware')(webpackCompiler));
 
 var mongoose = require('mongoose');
 var mongodb_url = process.env.MONGODB_URI || 'mongodb://localhost/rst-db';
@@ -29,6 +44,7 @@ app.set('port', (process.env.PORT || 3000));
 app.use('/', express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+
 
 // var MESSAGES_FILE = path.join(__dirname, 'data', 'messages.json');
 //
