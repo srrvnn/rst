@@ -1,0 +1,23 @@
+* {
+    font-family: "Hind Vadodara", sans-serif;
+}
+
+/* APP WIDE STYLES */
+
+html,
+body,
+#react {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    position: relative;
+
+    min-height: 100%;
+    margin: auto;
+    padding: 0 50px;
+
+    text-align: center;
+}

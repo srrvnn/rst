@@ -1,5 +1,6 @@
-var React = require('react');
+require('!style!css!../../css/footer.css');
 
+var React = require('react');
 var Footer = React.createClass({
 
 	footerList: [

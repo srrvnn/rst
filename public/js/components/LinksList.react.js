@@ -1,10 +1,11 @@
 var React = require('react');
 var request = require('request');
 
+require('!style!css!../../css/links-list.css');
+
 var LinksList = React.createClass({
 
-	empty: [],
-	links: ['Batches', 'Students', 'Tests', 'Messages'],
+	links: [{name: 'Batches', number: 8},{name: 'Students', number: 109},{name: 'Questions', number: 3418},{name: 'Messages', number: 68}],
 	base: location.protocol + '//' + location.host,
 
 	getInitialState: function() {
@@ -60,8 +61,8 @@ var LinksList = React.createClass({
 		var linkItems = this.links.map(function(item) {
 			return (
 				<li>
-					<img src="http://placehold.it/100x100" />
-					<span href={item.toLowerCase()}>{item}</span>
+					<span href={item.name.toLowerCase()}>{item.name.toUpperCase()}</span>
+					<span className="number">{item.number}</span>
 				</li>
 			);
 		});
@@ -74,7 +75,7 @@ var LinksList = React.createClass({
 		});
 		return (
 			<div className="content">
-				{linkItems}
+				<ul className="links-list"> {linkItems} </ul>
 			</div>
 		);
 	}

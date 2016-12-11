@@ -1,5 +1,8 @@
+require('!style!css!../../css/app.css');
+
 var Footer = require('./Footer.react');
 var LinksList = require('./LinksList.react');
+var TaskTimeline = require('./TaskTimeline.react');
 var React = require('react');
 var Header = require('./Header.react');
 
@@ -9,7 +12,9 @@ var App = React.createClass({
 		return (
 			<div className="container">
 				<Header />
+				<TaskTimeline />
 				<LinksList />
+				<Footer />
 			</div>
 		);
 	}
