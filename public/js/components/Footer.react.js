@@ -4,9 +4,9 @@ var React = require('react');
 var Footer = React.createClass({
 
 	footerList: [
-		// { name: 'Help', href: '/help' },
+		{ name: 'Help', href: '/help' },
 		{ name: 'Issues', href: 'http://github.com/srrvnn/rst/issues' },
-		{ name: 'Built with Love in California', href: null }
+		{ name: 'Built with Love in Mountain View, California', href: null }
 	],
 
 	render: function() {
