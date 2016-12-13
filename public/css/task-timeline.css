@@ -11,7 +11,7 @@
   margin: 0;
   width: 100%;
   bottom: 0;
-  margin-bottom: 65px; // margin for task-group + margin for task + half height of task
+  margin-bottom: 50px; // margin for task-group + margin for task + half height of task
   z-index: 1;
 }
 
@@ -27,12 +27,8 @@
 
 .task-timeline .task {
   display: inline-block;
-  border-radius: 100px;
-  width: 80px;
-  height: 80px;
-  padding: 15px;
-  margin: auto 15px;
-  font-size: 1.25em;
+  margin: auto 10px;
+  font-size: 1em;
   font-weight: 400;
   vertical-align: middle;
 }
