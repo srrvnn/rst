@@ -26,8 +26,6 @@
 }
 
 .task-timeline .task {
-  background: #ff9900;
-  color: white;
   display: inline-block;
   border-radius: 100px;
   width: 80px;

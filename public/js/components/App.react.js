@@ -1,4 +1,5 @@
-require('!style!css!../../css/app.css');
+require('../../css/app.css');
+require('../../css/palette.css');
 
 var Footer = require('./Footer.react');
 var LinksList = require('./LinksList.react');

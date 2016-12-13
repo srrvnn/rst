@@ -1,11 +1,32 @@
+require('../../css/links-list.css');
+
 var React = require('react');
 var request = require('request');
 
-require('!style!css!../../css/links-list.css');
-
 var LinksList = React.createClass({
 
-	links: [{name: 'Batches', number: 8},{name: 'Students', number: 109},{name: 'Questions', number: 3418},{name: 'Messages', number: 68}],
+	links: [
+		{
+			name: 'Batches',
+			number: 8,
+			key: 'batches'
+		},
+		{
+			name: 'Students',
+			number: 109,
+			key: 'students'
+		},
+		{
+			name: 'Questions',
+			number: 3418,
+			key: 'questions'
+		},
+		{
+			name: 'Messages',
+			number: 68,
+			key: 'messages'
+		}
+	],
 	base: location.protocol + '//' + location.host,
 
 	getInitialState: function() {
@@ -16,6 +37,10 @@ var LinksList = React.createClass({
 		request(this.base + '/api/messages', function(error, response, body) {
 			this.setState({messages: JSON.parse(body)});
 		}.bind(this));
+	},
+
+	componentDidUpdate: function() {
+		componentHandler.upgradeDom();
 	},
 
 	handleClearMessageClick: function() {
@@ -63,6 +88,9 @@ var LinksList = React.createClass({
 				<li>
 					<span href={item.name.toLowerCase()}>{item.name.toUpperCase()}</span>
 					<span className="number">{item.number}</span>
+					<button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+					  Button
+					</button>
 				</li>
 			);
 		});

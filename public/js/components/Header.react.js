@@ -1,8 +1,8 @@
+require('../../css/header.css');
+
 var Title = require('./Title.react');
 var React = require('react');
 var User = require('./User.react');
-
-require('!style!css!../../css/header.css');
 
 var Header = React.createClass({
 
