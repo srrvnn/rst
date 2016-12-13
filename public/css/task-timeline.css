@@ -6,7 +6,7 @@
 
 .task-timeline hr {
   height: 1px;
-  background: #eee;
+  background: #cccccc;
   position: absolute;
   margin: 0;
   width: 100%;
@@ -26,7 +26,8 @@
 }
 
 .task-timeline .task {
-  background: #ccc;
+  background: #ff9900;
+  color: white;
   display: inline-block;
   border-radius: 100px;
   width: 80px;
