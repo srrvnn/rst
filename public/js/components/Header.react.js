@@ -8,9 +8,9 @@ var Header = React.createClass({
 
 	render: function() {
 		return (
-			<div className="header">
-				<Title />
-				<User />
+			<div className="header default-primary-color">
+				<h1>R.S. Tuition Centre</h1>
+				<img src="/assets/lakshmirs.jpg" />
 			</div>
 		);
 	}

@@ -2,26 +2,23 @@
 
 .header {
     position: relative;
-
-    margin: 50px 0 100px;
-    padding: 1px;
+    padding: 100px 50px 30px 50px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .header h1 {
-    margin-bottom: 20px;
-
-    line-height: 50px;
+  flex: 1;
 }
 
-.header .user {
-    font-style: italic;
+.header div {
+  flex: 0;
 }
 
-.header img {position: absolute;
-    top: 0;
-    right: 50px;
-
-    margin: 20px 0 10px 0;
-
-    border-radius: 50px;
+.header img {
+  position: absolute;
+  border-radius: 50px;
+  width: 75px;
+  height: 75px;
 }

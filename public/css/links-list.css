@@ -42,15 +42,15 @@
 
 }
 
-.link-card-square.mdl-card {
+.link-card.mdl-card {
   width: 200px;
 }
 
-.link-card-square .mdl-card__title {
+.link-card .mdl-card__title {
   margin: auto;
 }
 
-.link-card-square .mdl-card__supporting-text {
+.link-card .mdl-card__supporting-text {
   font-size: 2.5em;
   line-height: 1em;
   width: auto;

@@ -86,7 +86,7 @@ var LinksList = React.createClass({
 		var linkItems = this.links.map(function(item) {
 			return (
 				<li>
-					<div className="link-card-square mdl-card mdl-shadow--2dp">
+					<div className="link-card mdl-card mdl-shadow--2dp">
 					  <div className="mdl-card__title mdl-card--expand">
 					    <h2 className="mdl-card__title-text">	{item.name}</h2>
 					  </div>
