@@ -1,12 +1,18 @@
 @import "palette";
 
-.header {
+.header-wrapper {
     background: $primary-color;
     position: relative;
-    padding: 100px 50px 30px 50px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+    padding: 50px 50px 30px 50px;
+    border-top: 20px solid $primary-color-dark;
+}
+
+.header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  max-width: 1080px;
+  margin: 0 auto;
 }
 
 .header h1 {
@@ -22,4 +28,5 @@
   border-radius: 50px;
   width: 75px;
   height: 75px;
+  border: 5px solid $primary-color-text;
 }
