@@ -1,4 +1,4 @@
-require('../../css/task-timeline.css');
+require('../../css/task-timeline.scss');
 
 var React = require('react');
 

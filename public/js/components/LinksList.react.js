@@ -1,4 +1,4 @@
-require('../../css/links-list.css');
+require('../../css/links-list.scss');
 
 var React = require('react');
 var request = require('request');

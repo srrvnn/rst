@@ -1,6 +1,7 @@
-/* HEADER STYLES */
+@import "palette";
 
 .header {
+    background: $primary-color;
     position: relative;
     padding: 100px 50px 30px 50px;
     display: flex;
