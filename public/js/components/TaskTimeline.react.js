@@ -79,18 +79,15 @@ var TaskTimeline = React.createClass({
   getTasksSpans: function(tasks) {
     return tasks.slice(0, 3).map(function(task) {
       return (
-        <div className="task-card-square mdl-card mdl-shadow--2dp">
-          <div className="mdl-card__title mdl-card--expand">
-            <h2 className="mdl-card__title-text">	{task.day}<br/>{task.time} </h2>
-          </div>
-        </div>
+        <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect task">
+          {task.day} <br/> {task.time}
+        </button>
       );
     })
   },
   render: function() {
     return (
       <div className="task-timeline">
-        <hr/>
         <div className="task-group">
           <button className="task-show-all mdl-button mdl-js-button">
             Enter Marks, for Tests

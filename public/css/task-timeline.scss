@@ -1,6 +1,9 @@
+@import 'palette';
+
 .task-timeline {
   margin: 40px auto;
   max-width: 1080px;
+  min-width: 600px;
   display: flex;
   position: relative;
 }
@@ -12,36 +15,28 @@
   margin: 0;
   width: 100%;
   bottom: 0;
-  margin-bottom: 75px; // margin for task-group + margin for task + half height of task
+  margin-bottom: 85px; // margin for task-group + margin for task + half height of task
   z-index: 1;
 }
 
 .task-timeline .task-group {
-  margin: 25px;
-  z-index: 2;
+  margin: 0 5px;
   flex: 1;
 }
 
 .task-timeline .task {
-  display: inline-block;
-  margin: auto 8px;
   font-size: 1em;
-  font-weight: 400;
-  vertical-align: middle;
+  font-weight: 600;
+  margin: 0 10px;
+  min-width: 50px;
+  width: 75px;
+  background: $primary-color-text;
+  height: auto;
+  line-height: normal;
+  padding: 15px;
 }
 
 .task-timeline .task-show-all {
   margin: 10px auto 20px auto;
   display: block;
-}
-
-.task-timeline .task-card-square {
-  width: auto;
-  min-height: auto;
-  display: inline-block;
-  margin: 10px;
-}
-
-.task-timeline .task-card-square .mdl-card__title-text {
-  font-size: 1em;
 }

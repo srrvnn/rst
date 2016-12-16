@@ -26,7 +26,7 @@ var LinksList = React.createClass({
 		},
 		{
 			name: 'Messages',
-			number: 68,
+			number: 89,
 			key: 'messages',
 			icon: 'chat_bubble',
 		}
@@ -99,6 +99,7 @@ var LinksList = React.createClass({
 					<button className="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
 						<i className="material-icons">{item.icon}{messageStatus}</i>
 					</button>
+					<div className="name">{item.name.toUpperCase()}</div>
 				</li>
 			);
 		});
