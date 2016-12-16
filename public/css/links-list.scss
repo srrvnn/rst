@@ -1,57 +1,35 @@
-/* LINKS LIST STYLES */
+@import "palette";
 
 .links-list {
     margin: 100px 0;
     padding: 0;
-
     list-style: none;
 }
 
 .links-list li {
     display: inline-block;
-
     text-align: center;
-
-    border-radius: 10px;
-    margin: 0 5px;
+    margin: 0 20px;
     padding: 5px;
 }
 
-.links-list li span {
-    display: inline-block;
-    padding: 5px;
+.links-list li button {
+  height: 96px;
+  width: 96px;
 }
 
-.links-list span.number {
-    font-size: 1.25em;
-    border-radius: 10px;
-    display: block;
-    padding-top: 0;
+.links-list .number {
+  color: $accent-color;
+  position: absolute;
+  top: -4px;
+  left: -24px;
+  font-size: 0.45em;
+  font-weight: 700;
+  width: 96px;
+  text-align: center;
 }
 
-.messages-list {
-
-    margin: 50px;
-    padding: 0;
-    list-style: none;
-}
-
-.messages-list li {
-    padding: 15px 0;
-    margin: auto;
-
-}
-
-.link-card.mdl-card {
-  width: 200px;
-}
-
-.link-card .mdl-card__title {
-  margin: auto;
-}
-
-.link-card .mdl-card__supporting-text {
-  font-size: 2.5em;
-  line-height: 1em;
-  width: auto;
+.links-list .mdl-button--fab .material-icons {
+  font-size: 2em;
+  transform: translate(-24px, -12px);
 }

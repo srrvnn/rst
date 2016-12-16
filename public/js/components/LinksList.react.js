@@ -9,22 +9,26 @@ var LinksList = React.createClass({
 		{
 			name: 'Batches',
 			number: 8,
-			key: 'batches'
+			key: 'batches',
+			icon: 'people_outline'
 		},
 		{
 			name: 'Students',
 			number: 109,
-			key: 'students'
+			key: 'students',
+			icon: 'person'
 		},
 		{
 			name: 'Questions',
 			number: 3418,
-			key: 'questions'
+			key: 'questions',
+			icon: 'assignment',
 		},
 		{
 			name: 'Messages',
 			number: 68,
-			key: 'messages'
+			key: 'messages',
+			icon: 'chat_bubble',
 		}
 	],
 	base: location.protocol + '//' + location.host,
@@ -84,22 +88,17 @@ var LinksList = React.createClass({
 
 	render: function() {
 		var linkItems = this.links.map(function(item) {
+			var messageStatus = null;
+			if (item.key == 'messages') {
+				messageStatus = (
+					<span className="number">{item.number}</span>
+				)
+			}
 			return (
 				<li>
-					<div className="link-card mdl-card mdl-shadow--2dp">
-					  <div className="mdl-card__title mdl-card--expand">
-					    <h2 className="mdl-card__title-text">	{item.name}</h2>
-					  </div>
-					  <div className="mdl-card__supporting-text">
-					    {item.number}
-					  </div>
-					  <div className="mdl-card__actions mdl-card--border">
-					    <a className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-					    	See all {item.name}
-					    </a>
-					  </div>
-					</div>
-
+					<button className="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+						<i className="material-icons">{item.icon}{messageStatus}</i>
+					</button>
 				</li>
 			);
 		});
