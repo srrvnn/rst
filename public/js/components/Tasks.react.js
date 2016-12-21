@@ -1,9 +1,26 @@
-require('../../css/task-timeline.scss');
+require('../../css/tasks.scss');
 
 var React = require('react');
 
-var TaskTimeline = React.createClass({
-  tasks: {
+var Tasks = React.createClass({
+
+  tasksGroups: [
+    {
+      key: 'marks',
+      title: 'Enter Marks, for Tests'
+    },
+    {
+      key: 'classes',
+      title: 'Take Attendance, for Classes'
+    },
+    {
+      key: 'questions',
+      title: 'Choose Questions, for Tests'
+    }
+  ],
+
+  // TODO(srrvnn): get from API
+  tasksItems: {
     'marks': [
       {
         timestamp: '',
@@ -76,39 +93,31 @@ var TaskTimeline = React.createClass({
     componentHandler.upgradeDom();
   },
 
-  getTasksSpans: function(tasks) {
-    return tasks.slice(0, 3).map(function(task) {
-      return (
-        <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect task">
-          {task.day} <br/> {task.time}
-        </button>
-      );
-    })
-  },
   render: function() {
+    var generateTasksElements = function(tasks) {
+      return tasks.slice(0, 3).map(function(task) {
+        return (
+          <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect task">
+            {task.day} <br/> {task.time}
+          </button>
+        );
+      });
+    }
+    var tasksGroupsElements = this.tasksGroups.map(function(tasksGroup) {
+      return (
+        <div className="tasks-group">
+          <button className="tasks-show-all mdl-button mdl-js-button">
+            {tasksGroup.title}
+          </button>
+          {generateTasksElements(this.tasksItems[tasksGroup.key])}
+        </div>
+      );
+    }.bind(this));
+
     return (
-      <div className="task-timeline">
-        <div className="task-group">
-          <button className="task-show-all mdl-button mdl-js-button">
-            Enter Marks, for Tests
-          </button>
-          {this.getTasksSpans(this.tasks.marks)}
-        </div>
-        <div className="task-group">
-          <button className="task-show-all mdl-button mdl-js-button">
-            Take Attendance, for Classes
-          </button>
-          {this.getTasksSpans(this.tasks.classes)}
-        </div>
-        <div className="task-group">
-          <button className="task-show-all mdl-button mdl-js-button">
-            Choose Questions, for Tests
-          </button>
-          {this.getTasksSpans(this.tasks.questions)}
-        </div>
-      </div>
+      <div className="tasks"> {tasksGroupsElements} </div>
     )
   }
 });
 
-module.exports = TaskTimeline;
+module.exports = Tasks;

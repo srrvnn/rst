@@ -3,7 +3,7 @@ require('../../css/footer.scss');
 var React = require('react');
 var Footer = React.createClass({
 
-	footerList: [
+	footerItems: [
 		{ name: 'Help', href: '/help' },
 		{ name: 'Issues', href: 'http://github.com/srrvnn/rst/issues' },
 		{ name: 'Built with Love in Mountain View, California', href: null }
@@ -11,7 +11,7 @@ var Footer = React.createClass({
 
 	render: function() {
 
-		var footerListItems = this.footerList.map(function(item) {
+		var footerElements = this.footerItems.map(function(item) {
 			return typeof item.href === 'string'
 				? (<li><a href={item.href}>{item.name}</a></li>)
 				: (<li><span>{item.name}</span></li>);
@@ -19,9 +19,7 @@ var Footer = React.createClass({
 
 		return (
 			<footer className="footer">
-				<ul className="footer-list">
-					{footerListItems}
-				</ul>
+				<ul className="footer-items"> {footerElements} </ul>
 			</footer>
 		);
 	}

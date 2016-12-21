@@ -1,0 +1,31 @@
+@import "palette";
+
+.tasks {
+    display: flex;
+    margin: 100px auto;
+    max-width: $content-max-width;
+    min-width: $content-min-width;
+    position: relative;
+}
+
+.tasks .tasks-group {
+    flex: 1;
+    margin: 0 5px;
+}
+
+.tasks .task {
+    font-size: 1em;
+    font-weight: 600;
+    height: auto;
+    line-height: normal;
+    margin: 0 10px;
+    min-width: 50px;
+    padding: 15px;
+    width: 75px;
+}
+
+.tasks .tasks-show-all {
+    display: block;
+    font-size: 1.15em;
+    margin: 10px auto 20px auto;
+}

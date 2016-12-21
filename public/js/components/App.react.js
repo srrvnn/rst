@@ -2,8 +2,8 @@ require('../../css/app.scss');
 require('../../css/palette.scss');
 
 var Footer = require('./Footer.react');
-var LinksList = require('./LinksList.react');
-var TaskTimeline = require('./TaskTimeline.react');
+var Links = require('./Links.react');
+var Tasks = require('./Tasks.react');
 var React = require('react');
 var Header = require('./Header.react');
 
@@ -13,12 +13,13 @@ var App = React.createClass({
 		return (
 			<div className="container">
 				<Header />
-				<TaskTimeline />
-				<LinksList />
+				<Tasks />
+				<Links />
 				<Footer />
 			</div>
 		);
 	}
+	
 });
 
 module.exports = App;

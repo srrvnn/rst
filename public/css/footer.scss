@@ -1,29 +1,26 @@
-/* FOOTER LIST STYLES */
+@import "palette";
+
+$footer-height: 60px;
 
 footer {
-    position: absolute;
     bottom: 0;
+    height: $footer-height;
+    left: 0;
     margin-top: 50px;
-
-    width: calc(100% - 100px); // remove container padding
-    height: 60px;
+    position: absolute;
+    right: 0;
 }
 
-
-.footer-list {
-    height: 60px;
+.footer-items {
+    height: $footer-height;
+    line-height: $footer-height;
+    list-style: none;
     margin: 0;
     padding: 0;
-
-    list-style: none;
-
-    font-size: 14px;
-    line-height: 60px;
 }
 
-.footer-list li {
+.footer-items li {
     display: inline-block;
-
-    margin: 0 10px;
+    margin: 0 15px;
     padding: 0 10px;
 }

@@ -1,0 +1,46 @@
+@import "palette";
+
+.links {
+    height: 300px;
+    margin: 100px auto;
+}
+
+.links-items {
+    list-style: none;
+    padding: 50px;
+}
+
+.links-items li {
+    display: inline-block;
+    margin: auto 20px;
+    padding: 5px;
+    text-align: center;
+}
+
+.links-items li button {
+    height: 96px;
+    width: 96px;
+}
+
+.links-items .number {
+    color: $accent-color;
+    font-size: .45em;
+    font-weight: 600;
+    left: -24px;
+    position: absolute;
+    text-align: center;
+    top: -2px;
+    width: 96px;
+}
+
+.links-items .mdl-button--fab .material-icons { // three selectors to get precedence
+    font-size: 2em;
+    transform: translate(-24px, -12px);
+}
+
+.links-items .name {
+    color: $secondary-text-color;
+    font-size: 1.25em;
+    font-weight: 600;
+    margin: 25px;
+}
