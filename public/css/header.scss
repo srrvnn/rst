@@ -19,6 +19,11 @@
     flex: 1;
 }
 
+.header-content .title a {
+    text-decoration: none;
+    color: $primary-text-color;
+}
+
 .header-content .user-pic {
     flex: 0;
     border: 5px solid $primary-color-text;
