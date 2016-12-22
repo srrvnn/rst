@@ -13,8 +13,8 @@ var Footer = React.createClass({
 
 		var footerElements = this.footerItems.map(function(item) {
 			return typeof item.href === 'string'
-				? (<li><a href={item.href}>{item.name}</a></li>)
-				: (<li><span>{item.name}</span></li>);
+				? (<li key={item.name}><a href={item.href}>{item.name}</a></li>)
+				: (<li key={item.name}><span>{item.name}</span></li>);
 		});
 
 		return (

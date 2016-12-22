@@ -2,6 +2,7 @@ require('../../css/links.scss');
 
 var React = require('react');
 var request = require('request');
+var Link = require('react-router').Link;
 
 var Links = React.createClass({
 
@@ -44,13 +45,13 @@ var Links = React.createClass({
 	render: function() {
 		var linksElements = this.linksItems.map(function(item) {
 			return (
-				<li>
-					<button className="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+				<li key={item.key}>
+					<Link to={'/' + item.key} className="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
 						<i className="material-icons">
 							{item.icon}
 							{item.key == 'messages' && <span className="number">{item.number}</span>}
 						</i>
-					</button>
+					</Link>
 					<div className="name">{item.name.toUpperCase()}</div>
 				</li>
 			);

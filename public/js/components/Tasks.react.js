@@ -97,7 +97,7 @@ var Tasks = React.createClass({
     var generateTasksElements = function(tasks) {
       return tasks.slice(0, 3).map(function(task) {
         return (
-          <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect task">
+          <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect task"  key={task.day + task.time}>
             {task.day} <br/> {task.time}
           </button>
         );
@@ -105,7 +105,7 @@ var Tasks = React.createClass({
     }
     var tasksGroupsElements = this.tasksGroups.map(function(tasksGroup) {
       return (
-        <div className="tasks-group">
+        <div className="tasks-group" key={tasksGroup.title}>
           <button className="tasks-show-all mdl-button mdl-js-button">
             {tasksGroup.title}
           </button>
