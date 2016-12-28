@@ -3,7 +3,6 @@
 .header {
     background: $primary-color;
     border-top: 25px solid $primary-color-dark;
-    transition: border-top-width 100ms ease-in;
 }
 
 .header .header-content {
@@ -14,7 +13,7 @@
     max-width: $content-max-width;
     min-width: $content-min-width;
     padding: 50px;
-    transition: padding 50ms ease-in;
+    transition: padding 100ms ease-out;
 }
 
 .header-content .title {
@@ -24,7 +23,6 @@
 .header-content .title a {
     color: $primary-text-color;
     text-decoration: none;
-    transition: font-size 10ms ease-in;
 }
 
 .header-content .user-pic {
@@ -33,11 +31,10 @@
     flex: 0;
     height: 75px;
     position: absolute;
-    transition: height 50ms ease-in;
 }
 
 .header.minimal {
-    border-top: 10px solid $primary-color-dark;
+    border-top-width: 10px;
 }
 
 .header.minimal .header-content {
