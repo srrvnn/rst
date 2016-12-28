@@ -33,7 +33,8 @@
     width: 96px;
 }
 
-.links-items .mdl-button--fab .material-icons { // three selectors to get precedence
+.links-items .mdl-button--fab .material-icons {
+    // three selectors to get precedence
     font-size: 2em;
     transform: translate(-24px, -12px);
 }
