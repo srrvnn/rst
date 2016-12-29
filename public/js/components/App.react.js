@@ -9,10 +9,25 @@ var Header = require('./Header.react');
 
 var App = React.createClass({
 
+	contextTypes: {
+		router: React.PropTypes.object
+	},
+
+	getInitialState: function() {
+		return {siteData: {path: '/'}}
+	},
+
+	componentDidUpdate: function() {
+		let path = this.context.router.location.pathname;
+		if (path !== this.state.siteData.path) {
+			this.setState({siteData: {path: path}});
+		}
+	},
+
 	render: function() {
 		return (
 			<div className="container">
-				<Header />
+				<Header path={this.state.siteData.path}/>
 				{this.props.children}
 				<Footer />
 			</div>
