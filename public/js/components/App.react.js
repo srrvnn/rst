@@ -17,7 +17,15 @@ var App = React.createClass({
 		return {siteData: {path: '/'}}
 	},
 
+	componentDidMount: function() {
+		this.updateStateFromRouter();
+	},
+
 	componentDidUpdate: function() {
+		this.updateStateFromRouter();
+	},
+
+	updateStateFromRouter: function() {
 		let path = this.context.router.location.pathname;
 		if (path !== this.state.siteData.path) {
 			this.setState({siteData: {path: path}});
