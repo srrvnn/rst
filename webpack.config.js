@@ -3,7 +3,7 @@ var webpack = require("webpack");
 module.exports = {
   entry: [
     "webpack-hot-middleware/client",
-    "./public/js/app.js"
+    "./public/js/index.js"
   ],
   module: {
     loaders: [
