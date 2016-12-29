@@ -1,0 +1,81 @@
+@import "palette";
+
+$batch-card-height: 280px;
+$batch-card-width: 240px;
+
+.batches {
+  margin: auto;
+  max-width: $content-max-width;
+  min-width: $content-min-width;
+}
+
+.batch-page-title {
+    font-size: 3.25em;
+    line-height: 1.25em;
+    margin: 24px;
+}
+
+.batch-list {
+  margin: 50px auto;
+  text-align: center;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.batch {
+  flex: 0;
+  margin: 30px;
+  min-height: $batch-card-height;
+  min-width: $batch-card-width;
+  text-decoration: none;
+  padding: 10px;
+  text-align: left;
+}
+
+.batch .mdl-card__title {
+  margin: 0;
+}
+
+.batch .batch-name {
+  display: block;
+  font-size: 2em;
+}
+
+.batch .batch-count {
+  font-size: 1.25em;
+  padding: 10px 15px;
+  flex-grow: 1;
+}
+
+.batch .batch-add {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  text-align: center;
+  line-height: $batch-card-height;
+  display: block;
+  text-decoration: none;
+  font-size: 2.5em;
+  color: $primary-color;
+}
+
+.batch .batch-schedule {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.batch .batch-schedule-item {
+  flex: 1;
+  font-size: 1em;
+  font-weight: 600;
+  height: auto;
+  text-align: center;
+  word-wrap: normal;
+  max-width: 55px;
+  padding: 10px;
+  border: 1px solid $divider-color;
+}
