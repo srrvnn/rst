@@ -34,6 +34,10 @@ $batch-card-width: 240px;
   text-align: left;
 }
 
+.batch:hover {
+  background: lighten($accent-color, 20%);
+}
+
 .batch .mdl-card__title {
   margin: 0;
 }
