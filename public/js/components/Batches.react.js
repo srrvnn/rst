@@ -10,7 +10,8 @@ var Batches = React.createClass({
 			name: '10-A',
 			number_of_boys: 12,
 			number_of_girls: 7,
-			average_score: '87 /100',
+			average_score: '87',
+			average_score_most_recent_test: '93',
 			schedule: [
 				{
 	        timestamp: '',
@@ -33,7 +34,8 @@ var Batches = React.createClass({
 			name: '10-B',
 			number_of_boys: 12,
 			number_of_girls: 7,
-			average_score: '87 /100',
+			average_score: '87',
+			average_score_most_recent_test: '93',
 			schedule: [
 				{
 	        timestamp: '',
@@ -56,7 +58,8 @@ var Batches = React.createClass({
 			name: '10-C',
 			number_of_boys: 12,
 			number_of_girls: 7,
-			average_score: '87 /100',
+			average_score: '87',
+			average_score_most_recent_test: '93',
 			schedule: [
 				{
 	        timestamp: '',
@@ -96,7 +99,7 @@ var Batches = React.createClass({
 						{'Count: ' + (item.number_of_boys + item.number_of_girls) + ' children'}
 					</div>
 					<div className="mdl-card__supporting-text batch-count">
-						{'Average: ' + item.average_score}
+						{'Average: ' + item.average_score + ' (' + item.average_score_most_recent_test + ')'}
 					</div>
 					<div className="mdl-card__supporting-text batch-schedule">
 						{item.schedule.map(function(schedule_item) {
