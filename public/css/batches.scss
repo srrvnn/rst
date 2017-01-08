@@ -95,6 +95,10 @@ $batch-card-width: 240px;
     padding: 10px;
 }
 
+.batches-form ul {
+  margin: 0;
+}
+
 .batches-form .batches-form-name {
     margin: auto;
     max-width: inherit;
@@ -173,7 +177,7 @@ $batch-card-width: 240px;
     cursor: pointer;
     display: inline-block;
     line-height: 50px;
-    margin: 10px 20px;
+    margin: 0 20px;
 }
 
 .batches-form .batches-form-day {
@@ -256,4 +260,8 @@ $batch-card-width: 240px;
     left: 0;
     margin: auto;
     right: 0;
+}
+
+.batches-form-students-search label {
+  top: 28px;
 }

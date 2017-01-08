@@ -49,6 +49,7 @@ var BatchForm = React.createClass({
 	],
 	getInitialState: function() {
 		return {
+			students: this.studentItems.slice(),
 			search_query: '',
 			selected_students: {},
 			selected_classes: {'Mon': false, 'Tue': false, 'Wed': false, 'Thu': false, 'Fri': false, 'Sat': false, 'Sun': false},
@@ -73,6 +74,18 @@ var BatchForm = React.createClass({
 		}
 
 		this.setState({selected_bucket_key: selected_bucket});
+	},
+	filterStudents: function(e) {
+		let search_query = e.target.value.toLowerCase();
+		let students_filtered = [];
+		if (search_query.length > 0) {
+			students_filtered = this.state.students.filter(function(item) {
+					return (item.first_name.toLowerCase().indexOf(search_query) > -1 || item.last_name.toLowerCase().indexOf(search_query) > -1);
+			});
+		} else {
+			students_filtered = this.studentItems.slice();
+		}
+		this.setState({students: students_filtered});
 	},
 	render: function() {
 		let classElements = this.dayItems.map(function(item) {
@@ -103,9 +116,7 @@ var BatchForm = React.createClass({
 				</li>
 			)
 		}.bind(this));
-		let studentElements = this.studentItems.filter(function(item) {
-			if (this.state.search_query.length < 1) return true;
-		}.bind(this)).map(function(item) {
+		let studentElements = this.state.students.map(function(item) {
 			let selected = this.state.selected_students[item.id] ? 'selected' : '';
 			return (
 				<li key={item.id} data-id={"student-" + item.id} className={selected}>
@@ -150,6 +161,10 @@ var BatchForm = React.createClass({
 					</div>
 					<div className="batches-form-students" onClick={this.selectForBatch.bind(this, 'students')}>
 						<h5> Select Students </h5>
+						<div className="batches-form-students-search mdl-textfield mdl-js-textfield">
+	  					<input className="mdl-textfield__input" type="text" id="students-search" onChange={this.filterStudents}/>
+	  					<label className="mdl-textfield__label" htmlFor="students-search"> Search Students (Vivek) </label>
+						</div>
 						<ul> {studentElements} </ul>
 					</div>
 				</form>
