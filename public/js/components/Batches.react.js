@@ -7,6 +7,7 @@ var Batches = React.createClass({
 
 	batchItems: [
 		{
+			id: '2934',
 			name: '10-A',
 			number_of_boys: 12,
 			number_of_girls: 7,
@@ -31,6 +32,7 @@ var Batches = React.createClass({
 			]
 		},
 		{
+			id: '2325',
 			name: '10-B',
 			number_of_boys: 12,
 			number_of_girls: 7,
@@ -55,6 +57,7 @@ var Batches = React.createClass({
 			]
 		},
 		{
+			id: '2353',
 			name: '10-C',
 			number_of_boys: 12,
 			number_of_girls: 7,
@@ -91,33 +94,33 @@ var Batches = React.createClass({
 	render: function() {
 		let batchElements = this.batchItems.map(function(item) {
 			return (
-				<Link key={item.name} to="" className="batch demo-card-square mdl-card mdl-shadow--2dp">
-					<div className="mdl-card__title mdl-card--expand batch-name">
+				<Link key={item.name} to={"/batches/" + item.id} className="batches-item demo-card-square mdl-card mdl-shadow--2dp">
+					<div className="mdl-card__title mdl-card--expand batches-item-name">
 						{'Batch ' + item.name}
 					</div>
-					<div className="mdl-card__supporting-text batch-count">
+					<div className="mdl-card__supporting-text batches-item-count">
 						{'Count: ' + (item.number_of_boys + item.number_of_girls) + ' children'}
 					</div>
-					<div className="mdl-card__supporting-text batch-count">
-						{'Average: ' + item.average_score + ' (' + item.average_score_most_recent_test + ')'}
+					<div className="mdl-card__supporting-text batches-item-count">
+						{'Average: ' + item.average_score + ' (' + item.average_score_most_recent_test + ') %'}
 					</div>
-					<div className="mdl-card__supporting-text batch-schedule">
+					<div className="mdl-card__supporting-text batches-item-schedule">
 						{item.schedule.map(function(schedule_item) {
-								return (<span key={schedule_item.day + schedule_item.time} className="batch-schedule-item">{schedule_item.day} {schedule_item.time}</span>)
+								return (<span key={schedule_item.day + schedule_item.time} className="batches-item-schedule-item">{schedule_item.day} {schedule_item.time}</span>)
 						})}
 					</div>
 				</Link>
 			)
 		});
 		batchElements.push((
-			<Link key="0" to="" className="batch demo-card-square mdl-card mdl-shadow--2dp">
-				<i className="batch-add material-icons">add</i>
+			<Link key="0" to="/batches/new" className="batches-item demo-card-square mdl-card mdl-shadow--2dp">
+				<i className="batches-add material-icons">add</i>
 			</Link>
 		));
 		return (
 			<div className="batches">
-        <div className="batch-page-title"> Batches 2016-2017 </div>
-				<ul className="batch-list"> {batchElements} </ul>
+        <div className="batches-title"> Batches 2016-2017 </div>
+				<ul className="batches-list"> {batchElements} </ul>
 			</div>
 		);
 	}

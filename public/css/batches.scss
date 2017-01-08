@@ -1,85 +1,259 @@
 @import "palette";
 
+/* BATCHES PAGE STYLE */
+
 $batch-card-height: 280px;
 $batch-card-width: 240px;
 
 .batches {
-  margin: auto;
-  max-width: $content-max-width;
-  min-width: $content-min-width;
+    margin: auto;
+    max-width: $content-max-width;
+    min-width: $content-min-width;
 }
 
-.batch-page-title {
+.batches-title,
+.batches-form-title {
     font-size: 3.25em;
     line-height: 1.25em;
     margin: 24px;
 }
 
-.batch-list {
-  margin: 50px auto;
-  text-align: center;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+.batches-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 50px auto;
+    padding: 0;
+    text-align: center;
 }
 
-.batch {
-  flex: 0;
-  margin: 30px;
-  min-height: $batch-card-height;
-  min-width: $batch-card-width;
-  text-decoration: none;
-  padding: 10px;
-  text-align: left;
+.batches-item {
+    flex: 0;
+    margin: 30px;
+    min-height: $batch-card-height;
+    min-width: $batch-card-width;
+    padding: 10px;
+    text-align: left;
+    text-decoration: none;
 }
 
-.batch:hover {
-  background: lighten($accent-color, 20%);
+.batches-item:hover {
+    background: lighten($accent-color, 20%);
 }
 
-.batch .mdl-card__title {
-  margin: 0;
+.batches-item .mdl-card__title {
+    margin: 0;
 }
 
-.batch .batch-name {
-  display: block;
-  font-size: 2em;
+.batches-item .batches-item-name {
+    display: block;
+    font-size: 2em;
 }
 
-.batch .batch-count {
-  font-size: 1.25em;
-  padding: 10px 15px;
-  flex-grow: 1;
+.batches-item .batches-item-count {
+    flex-grow: 1;
+    font-size: 1.25em;
+    padding: 10px 15px;
 }
 
-.batch .batch-add {
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  text-align: center;
-  line-height: $batch-card-height;
-  display: block;
-  text-decoration: none;
-  font-size: 2.5em;
-  color: $primary-color;
+.batches-item .batches-add {
+    color: $primary-color;
+    display: block;
+    font-size: 2.5em;
+    left: 0;
+    line-height: $batch-card-height;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    text-decoration: none;
+    top: 0;
 }
 
-.batch .batch-schedule {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
+.batches-item .batches-item-schedule {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
 
-.batch .batch-schedule-item {
-  flex: 1;
-  font-size: 1em;
-  font-weight: 600;
-  height: auto;
-  text-align: center;
-  word-wrap: normal;
-  max-width: 55px;
-  padding: 10px;
-  border: 1px solid $divider-color;
+.batches-item .batches-item-schedule-item {
+    border: 1px solid $divider-color;
+    flex: 1;
+    font-size: 1em;
+    font-weight: 600;
+    height: auto;
+    max-width: 55px;
+    padding: 10px;
+    text-align: center;
+    word-wrap: normal;
+}
+
+/* BATCHES FORM STYLE */
+
+.batches-form > * {
+    display: block;
+    margin: auto;
+    padding: 10px;
+}
+
+.batches-form .batches-form-name {
+    margin: auto;
+    max-width: inherit;
+    width: 600px;
+}
+
+.batches-form .batches-form-name input,
+.batches-form .batches-form-name label {
+    font-size: 2.75em;
+    padding: 0;
+}
+
+.batches-form .batches-form-name label {
+    overflow: visible;
+    top: 45px;
+}
+
+.batches-form .batches-form-year,
+.batches-form .batches-form-standard {
+    display: inline-block;
+    width: 200px;
+}
+
+.batches-form .batches-form-year input,
+.batches-form .batches-form-standard input,
+.batches-form .batches-form-year label,
+.batches-form .batches-form-standard label {
+    font-size: 1.75em;
+}
+
+
+.batches-form .batches-form-year label,
+.batches-form .batches-form-standard label {
+    overflow: visible;
+    top: 40px;
+}
+
+.batches-form input,
+.batches-form label {
+    text-align: center;
+}
+
+.batches-form button {
+    margin: 20px;
+    width: 90px;
+}
+
+.batches-form  h5 {
+    color: $divider-color;
+}
+
+.batches-form .batches-form-buttons {
+    margin: 10px auto 50px;
+}
+
+.batches-form .batches-form-buttons-left,
+.batches-form .batches-form-buttons-right {
+    display: inline-block;
+    width: 50%;
+}
+
+.batches-form .batches-form-buttons-left {
+    text-align: right;
+}
+
+.batches-form .batches-form-buttons-right {
+    text-align: left;
+}
+
+.batches-form ul {
+    list-style: none;
+    padding: 0;
+}
+
+.batches-form li {
+    cursor: pointer;
+    display: inline-block;
+    line-height: 50px;
+    margin: 10px 20px;
+}
+
+.batches-form .batches-form-day {
+    border-radius: 50px;
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+}
+
+.batches-form li.suggest .batches-form-day {
+    border: 1px solid $primary-color-light;
+}
+
+.batches-form li.selected .batches-form-day {
+    background: $primary-color-light;
+}
+
+.batches-form-students li {
+    border-radius: initial;
+    font-size: 1em;
+    height: auto;
+    line-height: initial;
+    line-height: 1.25em;
+    margin: 10px;
+    overflow: hidden;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 85px;
+}
+
+
+.batches-form-students li.selected {
+    background: none;
+}
+
+.batches-form-students li.selected::before {
+    background: $primary-color-light;
+    border-radius: 50px;
+    content: "";
+    display: block;
+    height: 50px;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 10px;
+    width: 50px;
+}
+
+.batches-form-students li img {
+    border-radius: 50px;
+    display: block;
+    margin: 10px auto;
+}
+
+.batches-form-time {
+    display: block;
+    margin: 5px auto;
+    visibility: hidden;
+    width: 75px;
+}
+
+.batches-form-time.show {
+    visibility: visible;
+}
+
+.batches-form-time input,
+.batches-form-time label {
+    font-size: .75em;
+}
+
+.batches-form-time label {
+    top: 10px;
+}
+
+.batches-form-time span {
+    left: 0;
+    margin: auto;
+    right: 0;
 }
