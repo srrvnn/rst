@@ -11,3 +11,9 @@ $divider-color: #bdbdbd;
 $content-max-width: 1200px;
 $content-min-width: 980px;
 $footer-height: 60px;
+
+.content {
+  margin: auto;
+  min-width: $content-min-width;
+  max-width: $content-max-width;
+}

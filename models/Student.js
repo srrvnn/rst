@@ -1,6 +1,9 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
+// remember student can be a part of many batches
+// example weak students from all batches form a batch with special classes
+
 var StudentSchema = new Schema({
   _id: Schema.Types.ObjectId,
   name: { type: String, required: true },

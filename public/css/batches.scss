@@ -6,13 +6,12 @@ $batch-card-height: 280px;
 $batch-card-width: 240px;
 
 .batches {
-    margin: auto;
-    max-width: $content-max-width;
-    min-width: $content-min-width;
+    @extend .content;
 }
 
 .batches-title,
-.batches-form-title {
+.batches-form-title,
+.batches-batch-title {
     font-size: 3.25em;
     line-height: 1.25em;
     margin: 24px;
@@ -87,53 +86,18 @@ $batch-card-width: 240px;
     word-wrap: normal;
 }
 
-/* BATCHES FORM STYLE */
+/* BATCHES FORM STYLE, BATCHES VIEW STYLE */
 
-.batches-form > * {
-    display: block;
-    margin: auto;
-    padding: 10px;
+/* inherit content to batches-form */
+.batches-form, .batches-batch {
+  @extend .content;
+  text-align: center;
 }
 
-.batches-form ul {
-  margin: 0;
-}
-
-.batches-form .batches-form-name {
-    margin: auto;
-    max-width: inherit;
-    width: 600px;
-}
-
-.batches-form .batches-form-name input,
-.batches-form .batches-form-name label {
-    font-size: 2.75em;
-    padding: 0;
-}
-
-.batches-form .batches-form-name label {
-    overflow: visible;
-    top: 45px;
-}
-
-.batches-form .batches-form-year,
-.batches-form .batches-form-standard {
-    display: inline-block;
-    width: 200px;
-}
-
-.batches-form .batches-form-year input,
-.batches-form .batches-form-standard input,
-.batches-form .batches-form-year label,
-.batches-form .batches-form-standard label {
-    font-size: 1.75em;
-}
-
-
-.batches-form .batches-form-year label,
-.batches-form .batches-form-standard label {
-    overflow: visible;
-    top: 40px;
+.batches-batch-classes,
+.batches-batch-tests,
+.batches-batch-students {
+  margin: 100px auto;
 }
 
 .batches-form input,
@@ -141,50 +105,105 @@ $batch-card-width: 240px;
     text-align: center;
 }
 
-.batches-form button {
+.batches-form button,
+.batches-batch button {
     margin: 20px;
-    width: 90px;
+    width: 105px;
 }
 
-.batches-form  h5 {
-    color: $divider-color;
+.batches-form h5,
+.batches-batch h5 {
+    color: $secondary-text-color;
 }
 
-.batches-form .batches-form-buttons {
+.batches-form-name,
+.batches-batch-name {
+    display: block;
+    margin: auto;
+    width: 600px;
+}
+
+.batches-form-name input,
+.batches-form-name label {
+    font-size: 2.75em;
+    line-height: normal;
+}
+
+.batches-form-year,
+.batches-form-standard,
+.batches-batch-year,
+.batches-batch-standard {
+    width: 250px;
+}
+
+.batches-form-year input,
+.batches-form-standard input,
+.batches-form-year label,
+.batches-form-standard label,
+.batches-batch-year,
+.batches-batch-standard {
+    font-size: 1.75em;
+    line-height: normal;
+}
+
+.batches-batch-year,
+.batches-batch-standard {
+  display: inline-block;
+  text-align: center;;
+}
+
+.batches-form-buttons,
+.batches-batch-buttons {
     margin: 10px auto 50px;
 }
 
 .batches-form .batches-form-buttons-left,
-.batches-form .batches-form-buttons-right {
+.batches-form .batches-form-buttons-right,
+.batches-batch .batches-batch-buttons-left,
+.batches-batch .batches-batch-buttons-right {
     display: inline-block;
     width: 50%;
 }
 
-.batches-form .batches-form-buttons-left {
+.batches-form .batches-form-buttons-left,
+.batches-batch .batches-batch-buttons-left {
     text-align: right;
 }
 
-.batches-form .batches-form-buttons-right {
+.batches-form .batches-form-buttons-right,
+.batches-batch .batches-batch-buttons-right {
     text-align: left;
 }
 
-.batches-form ul {
-    list-style: none;
-    padding: 0;
-}
-
-.batches-form li {
+.batches-form li,
+.batches-batch li {
     cursor: pointer;
     display: inline-block;
     line-height: 50px;
     margin: 0 20px;
 }
 
-.batches-form .batches-form-day {
+.batches-form-day {
     border-radius: 50px;
-    display: inline-block;
     height: 50px;
     width: 50px;
+    margin: auto;
+}
+
+.batches-batch-dot {
+  border-radius: 10px;
+  height: 10px;
+  width: 10px;
+  margin: 20px;
+  background: $primary-color-light;
+}
+
+.batches-batch li.exists .batches-batch-dot {
+  border-radius: 50px;
+  height: 50px;
+  width: 50px;
+  margin: auto;
+  background: $primary-color-light;
 }
 
 .batches-form li.suggest .batches-form-day {
@@ -195,25 +214,15 @@ $batch-card-width: 240px;
     background: $primary-color-light;
 }
 
-.batches-form-students li {
+.batches-form-students li,
+.batches-batch-students li {
     border-radius: initial;
-    font-size: 1em;
-    height: auto;
-    line-height: initial;
-    line-height: 1.25em;
-    margin: 10px;
+    line-height: normal;
     overflow: hidden;
-    overflow: hidden;
-    padding: 0;
     position: relative;
     text-overflow: ellipsis;
     white-space: nowrap;
     width: 85px;
-}
-
-
-.batches-form-students li.selected {
-    background: none;
 }
 
 .batches-form-students li.selected::before {
@@ -230,15 +239,14 @@ $batch-card-width: 240px;
     width: 50px;
 }
 
-.batches-form-students li img {
+.batches-form-students li img,
+.batches-batch-students li img {
     border-radius: 50px;
     display: block;
     margin: 10px auto;
 }
 
 .batches-form-time {
-    display: block;
-    margin: 5px auto;
     visibility: hidden;
     width: 75px;
 }
@@ -250,18 +258,12 @@ $batch-card-width: 240px;
 .batches-form-time input,
 .batches-form-time label {
     font-size: .75em;
-}
-
-.batches-form-time label {
-    top: 10px;
+    line-height: normal;
 }
 
 .batches-form-time span {
     left: 0;
     margin: auto;
     right: 0;
-}
-
-.batches-form-students-search label {
-  top: 28px;
+    line-height: 24px;
 }

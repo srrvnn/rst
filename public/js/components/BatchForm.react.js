@@ -96,7 +96,7 @@ var BatchForm = React.createClass({
 					<div className="batches-form-day" data-id={"test-" + item.name}> {item.name} </div>
 					<div className={"batches-form-time mdl-textfield mdl-js-textfield" + (selected ? ' show' : '')}>
   					<input className="mdl-textfield__input" type="text" pattern="[0-9]{1,2}:[0-9]{2} [AP]M" id="standard" />
-  					<label className="mdl-textfield__label" htmlFor="phone"> Time? </label>
+  					<label className="mdl-textfield__label" htmlFor="phone"> What Time? </label>
 						<span className="mdl-textfield__error">Ex: 07:00 PM</span>
 					</div>
 				</li>
@@ -110,7 +110,7 @@ var BatchForm = React.createClass({
 					<div className="batches-form-day" data-id={"test-" + item.name}> {item.name} </div>
 					<div className={"batches-form-time mdl-textfield mdl-js-textfield" + (selected ? ' show' : '')}>
   					<input className="mdl-textfield__input" type="text" pattern="[0-9]{1,2}:[0-9]{2} [AP]M" id="standard" />
-  					<label className="mdl-textfield__label" htmlFor="phone"> Time? </label>
+  					<label className="mdl-textfield__label" htmlFor="phone"> What Time? </label>
 						<span className="mdl-textfield__error">Ex: 07:00 PM</span>
 					</div>
 				</li>
@@ -135,21 +135,21 @@ var BatchForm = React.createClass({
 					</div>
 					<div className="batches-form-year mdl-textfield mdl-js-textfield">
   					<input className="mdl-textfield__input" type="text" pattern="[0-9\- ]*" id="year" />
-  					<label className="mdl-textfield__label" htmlFor="phone"> Year (2016) </label>
+  					<label className="mdl-textfield__label" htmlFor="phone"> Year (ex: 2016-2017) </label>
   					<span className="mdl-textfield__error">Use numerical, and a hyphen</span>
 					</div>
 					<div className="batches-form-standard mdl-textfield mdl-js-textfield">
   					<input className="mdl-textfield__input" type="text" pattern="[0-9]*" id="standard" />
-  					<label className="mdl-textfield__label" htmlFor="phone"> Standard (10) </label>
+  					<label className="mdl-textfield__label" htmlFor="phone"> Standard (ex: 10) </label>
   					<span className="mdl-textfield__error">Use numericals</span>
 					</div>
 					<div className="batches-form-buttons">
 						<div className="batches-form-buttons-left">
 							<button className="mdl-button mdl-js-button mdl-button--raised mdl-button--accent"> Save </button>
 						</div>
-						<div className="batches-form-buttons-right">
+						<Link to="/batches" className="batches-form-buttons-right">
 							<button className="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" type="clear"> Cancel </button>
-						</div>
+						</Link>
 					</div>
 					<div className="batches-form-classes" onClick={this.selectForBatch.bind(this, 'classes')}>
 						<h5> Select Classes Schedule </h5>

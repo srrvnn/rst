@@ -1,10 +1,9 @@
 @import "palette";
 
 .tasks {
+    @extend .content;
     display: flex;
     margin: 100px auto;
-    max-width: $content-max-width;
-    min-width: $content-min-width;
     position: relative;
 }
 

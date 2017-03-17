@@ -6,12 +6,10 @@
 }
 
 .header .header-content {
+    @extend .content;
     align-items: center;
     display: flex;
     justify-content: flex-end;
-    margin: 0 auto;
-    max-width: $content-max-width;
-    min-width: $content-min-width;
     padding: 50px;
     transition: padding 100ms ease-out;
 }
