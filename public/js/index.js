@@ -18,6 +18,8 @@ var Students = require('./components/Students.react');
 
 window.React = React; // export for http://fb.me/react-devtools
 
+// TODO(srrvnn): move away from hash URLs, read react tutorials
+
 ReactDOM.render((
     <Router history={hashHistory}>
       <Route path="/" component={App}>

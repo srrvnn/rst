@@ -11,25 +11,25 @@ var Links = React.createClass({
 		{
 			name: 'Batches',
 			number: 8,
-			key: 'batches',
+			url: 'batches',
 			icon: 'people_outline'
 		},
 		{
 			name: 'Students',
 			number: 109,
-			key: 'students',
+			url: 'students',
 			icon: 'person'
 		},
 		{
 			name: 'Questions',
 			number: 3418,
-			key: 'questions',
+			url: 'questions',
 			icon: 'assignment',
 		},
 		{
 			name: 'Messages',
 			number: 89,
-			key: 'messages',
+			url: 'messages',
 			icon: 'chat_bubble',
 		}
 	],
@@ -43,13 +43,15 @@ var Links = React.createClass({
 	},
 
 	render: function() {
+
+		// map each item from {this.linksItems} to a linkElement for the render
 		var linksElements = this.linksItems.map(function(item) {
 			return (
-				<li key={item.key}>
-					<Link to={'/' + item.key} className="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+				<li key={item.url}>
+					<Link to={'/' + item.url} className="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
 						<i className="material-icons">
 							{item.icon}
-							{item.key == 'messages' && <span className="number">{item.number}</span>}
+							{item.url == 'messages' && <span className="number">{item.number}</span>}
 						</i>
 					</Link>
 					<div className="name">{item.name.toUpperCase()}</div>

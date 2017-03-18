@@ -4,6 +4,7 @@ var React = require('react');
 var Link = require('react-router').Link;
 
 var BatchForm = React.createClass({
+	// TODO(srrvnn): get from API
 	studentItems: [
 		{
 			id: 6454,
@@ -25,39 +26,20 @@ var BatchForm = React.createClass({
 		}
 	],
 	dayItems: [
-		{
-			name: 'Mon'
-		},
-		{
-			name: 'Tue'
-		},
-		{
-			name: 'Wed'
-		},
-		{
-			name: 'Thu'
-		},
-		{
-			name: 'Fri'
-		},
-		{
-			name: 'Sat'
-		},
-		{
-			name: 'Sun'
-		},
+		'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'
 	],
 	getInitialState: function() {
 		return {
 			students: this.studentItems.slice(),
 			search_query: '',
 			selected_students: {},
-			selected_classes: {'Mon': false, 'Tue': false, 'Wed': false, 'Thu': false, 'Fri': false, 'Sat': false, 'Sun': false},
-			selected_tests: {'Mon': false, 'Tue': false, 'Wed': false, 'Thu': false, 'Fri': false, 'Sat': false, 'Sun': false},
+			selected_classes: this.dayItems.reduce(function(obj, item){ obj[item] = false; return obj;}, {}),
+			selected_tests: this.dayItems.reduce(function(obj, item){ obj[item] = false; return obj;}, {}),
 		};
 	},
 	componentDidUpdate: function() {
-		componentHandler.upgradeDom(); // will update MDL components
+		// bootstrap MDL components in the component DOM
+		componentHandler.upgradeDom();
 	},
 	selectForBatch: function(section, e) {
 		let el = {id: e.target.dataset['id']};
@@ -89,11 +71,11 @@ var BatchForm = React.createClass({
 	},
 	render: function() {
 		let classElements = this.dayItems.map(function(item) {
-			let selected = this.state.selected_classes[item.name] ? 'selected' : '';
-			let suggest = this.state.selected_tests[item.name] ? '' : '';
+			let selected = this.state.selected_classes[item] ? 'selected' : '';
+			let suggest = this.state.selected_tests[item] ? '' : '';
 			return (
-				<li key={item.name} data-id={"class-" + item.name} className={selected + ' ' + suggest}>
-					<div className="batches-form-day" data-id={"test-" + item.name}> {item.name} </div>
+				<li key={item} data-id={"class-" + item} className={selected + ' ' + suggest}>
+					<div className="batches-form-day" data-id={"test-" + item}> {item} </div>
 					<div className={"batches-form-time mdl-textfield mdl-js-textfield" + (selected ? ' show' : '')}>
   					<input className="mdl-textfield__input" type="text" pattern="[0-9]{1,2}:[0-9]{2} [AP]M" id="standard" />
   					<label className="mdl-textfield__label" htmlFor="phone"> What Time? </label>
@@ -103,11 +85,11 @@ var BatchForm = React.createClass({
 			)
 		}.bind(this));
 		let testElements = this.dayItems.map(function(item) {
-			let selected = this.state.selected_tests[item.name] ? 'selected' : '';
-			let suggest = this.state.selected_classes[item.name] ? '' : '';
+			let selected = this.state.selected_tests[item] ? 'selected' : '';
+			let suggest = this.state.selected_classes[item] ? '' : '';
 			return (
-				<li key={item.name} data-id={"test-" + item.name} className={selected + ' ' + suggest}>
-					<div className="batches-form-day" data-id={"test-" + item.name}> {item.name} </div>
+				<li key={item} data-id={"test-" + item} className={selected + ' ' + suggest}>
+					<div className="batches-form-day" data-id={"test-" + item}> {item} </div>
 					<div className={"batches-form-time mdl-textfield mdl-js-textfield" + (selected ? ' show' : '')}>
   					<input className="mdl-textfield__input" type="text" pattern="[0-9]{1,2}:[0-9]{2} [AP]M" id="standard" />
   					<label className="mdl-textfield__label" htmlFor="phone"> What Time? </label>

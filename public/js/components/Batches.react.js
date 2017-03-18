@@ -88,10 +88,14 @@ var Batches = React.createClass({
 	},
 
 	componentDidUpdate: function() {
-		componentHandler.upgradeDom(); // will update MDL components
+
+		// update MDL components
+		componentHandler.upgradeDom();
 	},
 
 	render: function() {
+
+		// add batchElements by mapping each item from {this.batchItems}
 		let batchElements = this.batchItems.map(function(item) {
 			return (
 				<Link key={item.name} to={"/batches/" + item.id} className="batches-item demo-card-square mdl-card mdl-shadow--2dp">
@@ -112,11 +116,14 @@ var Batches = React.createClass({
 				</Link>
 			)
 		});
+
+		// add a batchElement for new batch
 		batchElements.push((
 			<Link key="0" to="/batches/new" className="batches-item demo-card-square mdl-card mdl-shadow--2dp">
 				<i className="batches-add material-icons">add</i>
 			</Link>
 		));
+
 		return (
 			<div className="batches">
         <div className="batches-title"> Batches 2016-2017 </div>
